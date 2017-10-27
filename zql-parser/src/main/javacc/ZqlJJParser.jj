@@ -94,78 +94,192 @@ SKIP:
 
 TOKEN: /* SQL Keywords. prefixed with K_ to avoid name clashes */
 {
-    <K_ALL: "ALL">
-|   <K_AND: "AND">
-|   <K_ANY: "ANY">
-|   <K_AS: "AS">
+    <K_ACTION:"ACTION">
+|   <K_ADD:"ADD">
+|   <K_ALL:"ALL">
+|   <K_ALTER:"ALTER">
+|   <K_AND:"AND">
+|   <K_ANY:"ANY">
+|   <K_AS:"AS">
 |   <K_ASC:"ASC">
 |   <K_AVG:"AVG">
+|   <K_BEGIN:"BEGIN">
 |   <K_BETWEEN:"BETWEEN">
-|   <K_BINARY_INTEGER: "BINARY_INTEGER">
+|   <K_BINARY:"BINARY">  
+|   <K_BINARY_INTEGER:"BINARY_INTEGER">
+|   <K_BIT:"BIT">
 |   <K_BOOLEAN:"BOOLEAN">
 |   <K_BY:"BY">
+|   <K_CALL :"CALL">
+|   <K_CASCADE:"CASCADE">
+|   <K_CASE:"CASE">
+|   <K_CAST:"CAST">
+|   <K_CHARACTER:"CHARACTER">
 |   <K_CHAR:"CHAR">
+|   <K_CHECK:"CHECK">
+|   <K_COLUMN:"COLUMN">
 |   <K_COMMENT:"COMMENT">
 |   <K_COMMIT:"COMMIT">
 |   <K_CONNECT:"CONNECT">
+|   <K_CONSTRAINT:"CONSTRAINT">
 |   <K_COUNT:"COUNT">
+|   <K_CREATE:"CREATE">
+|   <K_CROSS:"CROSS">
+|   <K_CURRENT:"CURRENT">
 |   <K_DATE:"DATE">
+|   <K_DATETIMELITERAL :("DATE" | "TIME" | "TIMESTAMP") >
+|   <K_DEFERRABLE :"DEFERRABLE">
+|   <K_DELAYED :"DELAYED">
 |   <K_DELETE:"DELETE">
 |   <K_DESC:"DESC">
+|   <K_DISABLE :"DISABLE">
 |   <K_DISTINCT:"DISTINCT">
+|   <K_DO:"DO">
+|   <K_DOUBLE :"DOUBLE">
+|   <K_DROP:"DROP">
+|   <K_DUPLICATE:"DUPLICATE">
+|   <K_ELSE:"ELSE">
+|   <K_ENABLE :"ENABLE">
+|   <K_END:"END">
+|   <K_ESCAPE:"ESCAPE">
+|   <K_EXCEPT:"EXCEPT">
+|   <K_EXCLUDE :"EXCLUDE">
 |   <K_EXCLUSIVE:"EXCLUSIVE">
+|   <K_EXEC:"EXEC">
+|   <K_EXECUTE:"EXECUTE">
 |   <K_EXISTS:"EXISTS">
 |   <K_EXIT:"EXIT">
+|   <K_EXTRACT:"EXTRACT">
+|   <K_FETCH:"FETCH">
+|   <K_FIRST:"FIRST">
 |   <K_FLOAT:"FLOAT">
+|   <K_FOLLOWING:"FOLLOWING">
+|   <K_FORCE :"FORCE">
+|   <K_FOREIGN:"FOREIGN">
 |   <K_FOR:"FOR">
 |   <K_FROM:"FROM">
+|   <K_FULL:"FULL">
+|   <K_FULLTEXT:"FULLTEXT">
+|   <K_GROUP_CONCAT:"GROUP_CONCAT">
 |   <K_GROUP:"GROUP">
 |   <K_HAVING:"HAVING">
+|   <K_HIGH_PRIORITY :"HIGH_PRIORITY">
+|   <K_IF:"IF">
+|   <K_IGNORE :"IGNORE">
+|   <K_ILIKE:"ILIKE">
+|   <K_INDEX:"INDEX">
 |   <K_IN:"IN">
+|   <K_INNER:"INNER">
 |   <K_INSERT:"INSERT">
 |   <K_INTEGER:"INTEGER">
 |   <K_INTERSECT:"INTERSECT">
+|   <K_INTERVAL:"INTERVAL">
 |   <K_INTO:"INTO">
 |   <K_IS:"IS">
+|   <K_JOIN:"JOIN">
+|   <K_KEEP:"KEEP">
+|   <K_KEY:"KEY">
+|   <K_LAST:"LAST">
+|   <K_LATERAL:"LATERAL">
+|   <K_LEFT:"LEFT">
 |   <K_LIKE:"LIKE">
+|   <K_LIMIT:"LIMIT">
 |   <K_LOCK:"LOCK">
+|   <K_LOW_PRIORITY :"LOW_PRIORITY">
+|   <K_MATCHED:"MATCHED">
+|   <K_MATERIALIZED:"MATERIALIZED">
 |   <K_MAX:"MAX">
+|   <K_MERGE:"MERGE">
 |   <K_MIN:"MIN">
 |   <K_MINUS:"MINUS">
 |   <K_MODE:"MODE">
+|   <K_MODIFY:"MODIFY">
 |   <K_NATURAL:"NATURAL">
+|   <K_NEXT:"NEXT">
+|   <K_NOCYCLE:"NOCYCLE">
+|   <K_NO:"NO">
 |   <K_NOT:"NOT">
+|   <K_NOVALIDATE :"NOVALIDATE">
 |   <K_NOWAIT:"NOWAIT">
 |   <K_NULL:"NULL">
+|   <K_NULLS:"NULLS">
 |   <K_NUMBER:"NUMBER">
+|   <K_OFFSET:"OFFSET">
 |   <K_OF:"OF">
 |   <K_ONLY:"ONLY">
-|   <K_OR:"OR">
+|   <K_ON:"ON">
+|   <K_OPEN:"OPEN">
 |   <K_ORDER:"ORDER">
+|   <K_OR:"OR">
+|   <K_OUTER:"OUTER">
+|   <K_OVER:"OVER">
+|   <K_PARTITION:"PARTITION">
+|   <K_PERCENT:"PERCENT">
+|   <K_PIVOT:"PIVOT">
+|   <K_PRECEDING:"PRECEDING">
+|   <K_PRECISION :"PRECISION">
+|   <K_PRIMARY:"PRIMARY">
 |   <K_PRIOR:"PRIOR">
 |   <K_QUIT:"QUIT">
+|   <K_RANGE:"RANGE">
 |   <K_READ:"READ">
 |   <K_REAL:"REAL">
+|   <K_RECURSIVE:"RECURSIVE">
+|   <K_REFERENCES:"REFERENCES">
+|   <K_REGEXP:"REGEXP">
+|   <K_REPLACE:"REPLACE">
+|   <K_RESTRICT:"RESTRICT">
+|   <K_RETURNING:"RETURNING"> 
+|   <K_RIGHT:"RIGHT">
 |   <K_ROLLBACK:"ROLLBACK">
 |   <K_ROW:"ROW">
+|   <K_ROWS:"ROWS">
 |   <K_SELECT:"SELECT">
+|   <K_SEMI :"SEMI">
+|   <K_SEPARATOR:"SEPARATOR">
 |   <K_SET:"SET">
 |   <K_SHARE:"SHARE">
+|   <K_SIBLINGS:"SIBLINGS">
+|   <K_SKIP:"SKIP">
 |   <K_SMALLINT:"SMALLINT">
+|   <K_SOME:"SOME">
+|   <K_SQL_CALC_FOUND_ROWS:"SQL_CALC_FOUND_ROWS">
 |   <K_START:"START">
 |   <K_SUM:"SUM">
+|   <K_TABLESPACE :"TABLESPACE">
 |   <K_TABLE:"TABLE">
+|   <K_THEN:"THEN">
+|   <K_TIME_KEY_EXPR :( "CURRENT_TIMESTAMP" | "CURRENT_TIME" | "CURRENT_DATE" ) ( "()" )?>
+|   <K_TOP:"TOP">
 |   <K_TRANSACTION:"TRANSACTION">
+|   <K_TRUNCATE:"TRUNCATE">
+|   <K_UNBOUNDED:"UNBOUNDED"> 
 |   <K_UNION:"UNION">
+|   <K_UNIQUE:"UNIQUE">
+|   <K_UNLOGGED:"UNLOGGED">
 |   <K_UPDATE:"UPDATE">
+|   <K_UPSERT:"UPSERT">
+|   <K_USE :"USE">
+|   <K_USING:"USING">
+|   <K_VALIDATE :"VALIDATE">
 |   <K_VALUES:"VALUES">
+|   <K_VALUE:"VALUE">
 |   <K_VARCHAR2:"VARCHAR2">
 |   <K_VARCHAR:"VARCHAR">
+|   <K_VARYING:"VARYING">
+|   <K_VIEW:"VIEW">
+|   <K_WAIT :"WAIT">
+|   <K_WHEN:"WHEN">
 |   <K_WHERE:"WHERE">
+|   <K_WITHIN:"WITHIN">
+|   <K_WITHOUT:"WITHOUT">
 |   <K_WITH:"WITH">
 |   <K_WORK:"WORK">
 |   <K_WRITE:"WRITE">
+|   <K_XML:"XML">
+|   <K_ZONE:"ZONE">
 }
+
 
 TOKEN : /* Numeric Constants */
 {
@@ -593,6 +707,10 @@ String SelectStar():
 }
 
 // FromClause ::= FromItem (, FromItem)*
+
+// FromClause ::= FromItem [ FromComplement ]
+// FromComplement ::= (, FromItem)* | JoinClause FromItem
+// JoinClause ::= 
 Vector FromClause():
 {
   Vector v = new Vector(8);
@@ -600,9 +718,34 @@ Vector FromClause():
 }
 {
     "FROM" f = FromItem() { v.addElement(f); }
-    ( "," f = FromItem() { v.addElement(f); } )*
+    [ FromComplement(v) {} (FromComplement(v) {} )* ]
     { return v; }
 }
+
+void FromComplement(Vector clause):
+{
+  ZFromItem f;
+}
+{
+   [
+          <K_LEFT>  [ <K_SEMI>  | <K_OUTER>  ]
+          |  ( <K_RIGHT> 
+             | <K_FULL>  
+           ) [ <K_OUTER> ]
+        | <K_INNER> 
+        | <K_NATURAL> 
+        | <K_CROSS> 
+    ]
+          ( <K_JOIN> f = FromItem() { clause.addElement(f); } | "," f = FromItem() { clause.addElement(f); } ) 
+    [ 
+     (( <K_ON> SQLExpression() )
+        |
+        ( <K_USING> "(" TableColumn() 
+                ("," TableColumn() )* ")"
+          ))
+      ]
+}
+
 
 // FromItem ::= TableReference [alias]
 ZFromItem FromItem():
