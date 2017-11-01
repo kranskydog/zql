@@ -727,23 +727,17 @@ void FromComplement(Vector clause):
   ZFromItem f;
 }
 {
-   [
-          <K_LEFT>  [ <K_SEMI>  | <K_OUTER>  ]
-          |  ( <K_RIGHT> 
-             | <K_FULL>  
-           ) [ <K_OUTER> ]
-        | <K_INNER> 
-        | <K_NATURAL> 
-        | <K_CROSS> 
-    ]
-          ( <K_JOIN> f = FromItem() { clause.addElement(f); } | "," f = FromItem() { clause.addElement(f); } ) 
-    [ 
-     (( <K_ON> SQLExpression() )
-        |
-        ( <K_USING> "(" TableColumn() 
-                ("," TableColumn() )* ")"
-          ))
-      ]
+   [  
+    <K_CROSS>  | <K_NATURAL> [ ( <K_LEFT> | <K_RIGHT> | <K_FULL> ) [ <K_OUTER> ] | <K_INNER> ] | <K_INNER> | ( <K_LEFT> | <K_RIGHT> | <K_FULL> ) [ <K_OUTER> ]
+   ] 
+   ( <K_JOIN> f = FromItem() { clause.addElement(f); } | "," f = FromItem() { clause.addElement(f); } ) 
+   [ 
+     LOOKAHEAD(2) (
+                   ( <K_ON> SQLExpression() )
+                   |
+                   ( <K_USING> "(" TableColumn() ("," TableColumn() )* ")" )
+                  )
+   ]
 }
 
 
